@@ -142,7 +142,7 @@ a{color:inherit}p{margin:0 0 14px}
 /* stat strip */
 .stat-strip{position:relative;z-index:2;background:rgba(255,255,255,.13);
   border-top:1px solid rgba(255,255,255,.2);backdrop-filter:blur(10px)}
-.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:32px 0}
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;padding:32px 0}
 .stat{text-align:center;border-right:1px solid rgba(255,255,255,.18)}
 .stat:last-child{border-right:none}
 .stat b{display:block;font-size:clamp(21px,2.4vw,32px);font-weight:600;letter-spacing:-.05em;line-height:1.2;color:#fff}
@@ -166,6 +166,9 @@ a{color:inherit}p{margin:0 0 14px}
 .split{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
 .split.narrow-left{grid-template-columns:.95fr 1.05fr}
 .split.split-fit{align-items:stretch}
+.photo-full{border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);align-self:center;
+  background:var(--b50)}
+.photo-full img{width:100%;height:auto;display:block}
 .photo-fit{position:relative;border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);
   background:var(--b50);min-height:100%}
 .photo-fit img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
@@ -499,6 +502,9 @@ a:focus-visible{outline:2px solid var(--b500);outline-offset:3px}
   .site-header.over .site-nav a[aria-current=page]:after{background:var(--b500)}
   .site-header.over .call-btn{background:linear-gradient(135deg,var(--b700),var(--b500));
     border:none;backdrop-filter:none;box-shadow:0 10px 26px -14px rgba(0,80,201,.9)}
+  .site-header.over .lang{background:#fff;border-color:var(--b100);color:var(--b700);
+    backdrop-filter:none}
+  .site-header.over .lang:hover{background:var(--b50);border-color:var(--b500)}
   .hero-inner{padding:64px 0 48px}
   .hero-copy{padding-right:0;max-width:none}
   .badge-card{top:26px;right:24px}
@@ -622,6 +628,7 @@ a:focus-visible{outline:2px solid var(--b500);outline-offset:3px}
     <div class="stat"><b>2012</b><span>정자동 개원</span></div>
     <div class="stat"><b>심장내과 전문의</b><span>의학박사 · 내과 전문의</span></div>
     <div class="stat"><b>꼼꼼한 진료</b><span>자세한 설명</span></div>
+    <div class="stat"><b>대학병원급 기기</b><span>심장 진료 장비</span></div>
   </div></div></div>
 </section>
 
@@ -758,7 +765,7 @@ function statusNow(){
   var now=seoulNow(),today=SCHEDULE[now.day],i,j,k;
   for(i=0;i<today.length;i++)
     if(now.hours>=today[i][0]&&now.hours<today[i][1])
-      return {open:true,headline:"진료 중",sub:"오늘 "+fmt(today[i][1])+"까지 접수합니다."};
+      return {open:true,headline:"진료 중",sub:"오늘 "+fmt(today[today.length-1][1])+"까지 진료합니다."};
   for(j=0;j<today.length;j++)
     if(now.hours<today[j][0])
       return {open:false,headline:(now.hours>=13&&now.hours<14)?"점심시간":"진료 준비 중",
