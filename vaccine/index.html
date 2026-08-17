@@ -68,6 +68,12 @@ a{color:inherit}p{margin:0 0 14px}
   font-family:"IBM Plex Mono",monospace;font-size:13.5px;padding:11px 20px;border-radius:999px;
   box-shadow:0 10px 26px -14px rgba(0,80,201,.9)}
 .call-btn svg{width:14px;height:14px;stroke:#fff;fill:none;stroke-width:1.6}
+.nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;
+  padding:0 11px;border:1px solid var(--b100);border-radius:12px;background:#fff;cursor:pointer}
+.nav-toggle span{display:block;height:2px;background:var(--b700);border-radius:2px;transition:.2s}
+.site-header.nav-open .nav-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.site-header.nav-open .nav-toggle span:nth-child(2){opacity:0}
+.site-header.nav-open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 .lang{display:inline-flex;align-items:center;gap:6px;text-decoration:none;
   font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.1em;color:var(--b700);
   border:1px solid var(--b100);border-radius:999px;padding:9px 14px;background:#fff}
@@ -135,7 +141,7 @@ a{color:inherit}p{margin:0 0 14px}
 /* stat strip */
 .stat-strip{position:relative;z-index:2;background:rgba(255,255,255,.13);
   border-top:1px solid rgba(255,255,255,.2);backdrop-filter:blur(10px)}
-.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:32px 0}
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:32px 0}
 .stat{text-align:center;border-right:1px solid rgba(255,255,255,.18)}
 .stat:last-child{border-right:none}
 .stat b{display:block;font-size:clamp(21px,2.4vw,32px);font-weight:600;letter-spacing:-.05em;line-height:1.2;color:#fff}
@@ -158,8 +164,8 @@ a{color:inherit}p{margin:0 0 14px}
 /* about split */
 .split{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
 .split.narrow-left{grid-template-columns:.95fr 1.05fr}
-.photo-frame{position:relative;border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);
-  background:linear-gradient(150deg,var(--b100),var(--b50));aspect-ratio:4/3}
+.photo-frame{position:relative;width:100%;border-radius:var(--r);overflow:hidden;
+  box-shadow:var(--sh);background:linear-gradient(150deg,var(--b100),var(--b50));aspect-ratio:4/3}
 .photo-frame img{width:100%;height:100%;object-fit:cover;display:block;
   position:relative;z-index:1}
 .photo-frame .ph{position:absolute;inset:0;display:grid;place-items:center;text-align:center;
@@ -203,7 +209,7 @@ a{color:inherit}p{margin:0 0 14px}
 .hours-wrap{display:grid;grid-template-columns:1.25fr .75fr;gap:34px;align-items:stretch}
 .hours{width:100%;border-collapse:separate;border-spacing:0;background:#fff;
   border:1px solid var(--b100);border-radius:var(--r);overflow:hidden;box-shadow:var(--sh)}
-.hours th,.hours td{padding:15px 24px;border-bottom:1px solid var(--b50);font-size:15.5px;
+.hours th,.hours td{padding:12px 24px;border-bottom:1px solid var(--b50);font-size:15.5px;
   vertical-align:middle}
 .hours thead th{background:var(--b50);color:var(--b700);font-family:"IBM Plex Mono",monospace;
   font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;text-align:left}
@@ -311,7 +317,7 @@ a{color:inherit}p{margin:0 0 14px}
   color:var(--b500);letter-spacing:.08em;font-weight:400;padding-top:3px}
 
 /* gallery */
-.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
 .shot{background:#fff;border:1px solid var(--b100);border-radius:var(--r);overflow:hidden;
   box-shadow:var(--sh)}
 .shot-img{position:relative;aspect-ratio:3/2;background:linear-gradient(150deg,var(--b50),var(--b100));
@@ -320,8 +326,8 @@ a{color:inherit}p{margin:0 0 14px}
 .shot-img .ph{position:absolute;inset:0;display:grid;place-items:center;text-align:center;
   font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;color:#7d92ab;
   line-height:2}
-.shot-cap{padding:16px 18px}
-.shot-cap b{display:block;font-size:15.5px;color:var(--b800);letter-spacing:-.03em;margin-bottom:5px}
+.shot-cap{padding:18px 22px}
+.shot-cap b{display:block;font-size:16.5px;color:var(--b800);letter-spacing:-.03em;margin-bottom:5px}
 .shot-cap span{font-size:13.5px;color:#5d7590;line-height:1.7}
 
 
@@ -397,6 +403,9 @@ a{color:inherit}p{margin:0 0 14px}
 .vessel svg{width:100%;height:auto;max-width:150px;margin:0 auto 14px;display:block}
 .vessel b{display:block;font-size:16px;color:var(--b800);letter-spacing:-.03em;margin-bottom:5px}
 .vessel span{font-size:13.5px;color:#7d92ab;line-height:1.6;display:block}
+
+.cred-line{font-family:"IBM Plex Mono",monospace;font-size:12.5px;letter-spacing:.04em;
+  color:var(--b700);margin:-4px 0 18px;word-break:keep-all;line-height:1.9}
 
 /* accreditation */
 .accred{display:grid;grid-template-columns:400px 1fr;gap:44px;align-items:center}
@@ -491,7 +500,7 @@ a:focus-visible{outline:2px solid var(--b500);outline-offset:3px}
 }
 @media (max-width:980px){
   .dept-grid{grid-template-columns:repeat(2,1fr)}
-  .split,.route-grid,.hours-wrap,.footer-grid{grid-template-columns:1fr;gap:38px}
+  .split,.split.narrow-left,.route-grid,.hours-wrap,.footer-grid{grid-template-columns:1fr;gap:32px}
   .hero{min-height:0}
   .badge-card{top:auto;bottom:22px;right:20px;padding:8px 18px 8px 10px}
   .badge-card b{font-size:15px}
@@ -500,20 +509,39 @@ a:focus-visible{outline:2px solid var(--b500);outline-offset:3px}
   .greet{grid-template-columns:1fr;gap:30px}
   .head-split{grid-template-columns:1fr;gap:30px}
   .head-split .shot-img{max-width:240px;margin:0}
+  .check-list li{font-size:14.5px}
+  .cred-line{font-size:12px;margin-bottom:14px}
   .accred{grid-template-columns:1fr;gap:28px}
   .cv-grid{grid-template-columns:1fr}
   .vessels{grid-template-columns:1fr;gap:14px}
+  .gallery{grid-template-columns:1fr;gap:18px}
   .greet .photo-frame{max-width:260px}
   .band{padding:64px 0}
 }
 @media (max-width:640px){
   .wrap{padding:0 26px}
-  .header-inner{min-height:64px;gap:12px}
-  .logo{margin-right:0;flex:1 1 100%}
-  .site-nav{order:3;flex:1 1 100%;gap:18px;overflow-x:auto;font-size:14px;padding-bottom:4px;
-    white-space:nowrap}
-  .submenu{position:fixed;left:20px;right:20px;min-width:0}
-  .call-btn{order:2}
+  .header-inner{min-height:64px;gap:10px;flex-wrap:nowrap;position:relative}
+  .logo{margin-right:auto;flex:0 1 auto;min-width:0}
+  .logo-txt b{font-size:16px}
+  .logo-mark img{height:34px}
+  .nav-toggle{display:flex;order:4;flex:0 0 auto}
+  .lang{order:2;padding:8px 11px;font-size:11px}
+  .call-btn{order:3;padding:9px 13px;font-size:0;gap:0}
+  .call-btn svg{width:17px;height:17px}
+  .site-nav{order:5;display:none;position:absolute;top:100%;left:-20px;right:-20px;
+    flex-direction:column;gap:0;background:#fff;border-top:1px solid var(--line);
+    padding:8px 20px 16px;box-shadow:0 20px 40px -24px rgba(6,42,99,.5);max-height:75vh;
+    overflow-y:auto}
+  .site-header.nav-open .site-nav{display:flex}
+  .site-nav a{padding:14px 2px;font-size:15.5px;border-bottom:1px solid var(--b50)}
+  .site-nav a[aria-current=page]:after{display:none}
+  .has-sub{display:block;position:static}
+  .has-sub>a i{display:none}
+  .submenu{position:static;display:flex;min-width:0;border:none;box-shadow:none;
+    background:transparent;padding:0 0 8px 16px;margin:0;border-radius:0}
+  .submenu a{padding:11px 2px;font-size:14.5px;border-bottom:none;color:#5d7590}
+  .site-header.over .site-nav{background:#fff}
+  .site-header.over .site-nav a{color:var(--ink)}
   .hero-inner{padding:44px 0 36px}
   .hero-scrim{background:linear-gradient(180deg,rgba(6,42,99,.9) 0%,rgba(6,42,99,.82) 55%,
     rgba(0,59,150,.6) 100%)}
@@ -544,6 +572,9 @@ a:focus-visible{outline:2px solid var(--b500);outline-offset:3px}
 <nav class="site-nav"><a href="../">홈</a><span class="has-sub"><a href="../care/" aria-current="page">진료 영역<i></i></a><span class="submenu"><a href="../care/">전체보기</a><a href="../exam/">검사</a><a href="../endoscopy/">위내시경</a><a href="../checkup/">건강검진</a><a href="../vaccine/" class="on">예방접종</a></span></span><span class="has-sub"><a href="../health/">질환 정보<i></i></a><span class="submenu"><a href="../health/">심근경색과 협심증</a><a href="../diabetes/">당뇨 관리</a><a href="../respiratory/">호흡기 클리닉</a></span></span><a href="../tour/">병원 둘러보기</a><a href="../about/">의료진</a><a href="../location/">오시는 길</a></nav>
 <a class="lang" href="../en/">EN</a>
 <a class="call-btn" href="tel:0317188275"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15.5 21A13.5 13.5 0 0 1 3 8.5 2.5 2.5 0 0 1 5.5 6h2L9 9.5 7 11a10 10 0 0 0 6 6l1.5-2 3.5 1.5v2A2.5 2.5 0 0 1 15.5 21Z"/></svg> 031-718-8275</a>
+<button class="nav-toggle" aria-label="메뉴 열기" aria-expanded="false">
+  <span></span><span></span><span></span>
+</button>
 </div></header>
 <main>
 <section class="page-head"><div class="wrap">
@@ -554,31 +585,29 @@ a:focus-visible{outline:2px solid var(--b500);outline-offset:3px}
 </div></section>
 
 <section class="band blob"><div class="wrap table-stack">
-<table class="price-table"><caption>접종 비용</caption>
-<thead><tr><th scope="col">백신</th><th scope="col">비용</th></tr></thead>
+<table class="price-table info-table"><caption>접종 가능한 백신</caption>
+<thead><tr><th scope="col">백신</th><th scope="col">제품</th></tr></thead>
 <tbody>
-<tr><td>대상포진 — 싱그릭스</td><td>280,000원</td></tr>
-<tr><td>대상포진 — 스카이조스터</td><td>160,000원</td></tr>
-<tr><td>폐렴구균 — 프리베나13</td><td>130,000원</td></tr>
-<tr><td>A형간염 — 박타</td><td>80,000원</td></tr>
-<tr><td>파상풍·디프테리아 (Td)</td><td>50,000원</td></tr>
-<tr><td>독감 4가 — 지씨플루 쿼드리밸런트</td><td>40,000원</td></tr>
-<tr><td>독감 4가 — 보령플루 Ⅷ 테트라</td><td>40,000원</td></tr>
-<tr><td>B형간염 — 유박스비</td><td>35,000원</td></tr>
+<tr><th scope="row">대상포진</th><td>싱그릭스 · 스카이조스터</td></tr>
+<tr><th scope="row">폐렴구균</th><td>프리베나13</td></tr>
+<tr><th scope="row">A형간염</th><td>박타</td></tr>
+<tr><th scope="row">B형간염</th><td>유박스비</td></tr>
+<tr><th scope="row">파상풍·디프테리아</th><td>Td</td></tr>
+<tr><th scope="row">독감 (4가)</th><td>지씨플루 쿼드리밸런트 · 보령플루 Ⅷ 테트라</td></tr>
+<tr><th scope="row">자궁경부암</th><td>HPV 백신</td></tr>
 </tbody></table>
-<div class="notice"><p>표기 금액은 비급여 기준이며 부가세가 포함되어 있습니다.
-진찰료와 주사료가 별도로 산정될 수 있고, 수급 상황에 따라 제품이 변경될 수 있습니다.
-자궁경부암 백신 비용은 제품에 따라 다르므로 전화로 문의해 주십시오.</p></div>
+<div class="notice"><p>백신 수급 상황에 따라 제품이 변경될 수 있습니다.
+방문 전 전화로 재고를 확인해 주십시오.</p></div>
 </div></section>
 
 <section class="band tinted"><div class="wrap">
 <h2>국가예방접종 지원</h2>
-<p class="lede">해당 대상은 무료 또는 경감된 비용으로 접종 가능합니다. 신분증을 지참해 주십시오.</p>
+<p class="lede">아래 대상에 해당하면 국가예방접종 지원을 받으실 수 있습니다. 신분증을 지참해 주십시오.</p>
 <div class="cards">
   <div class="card"><div class="icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.5 3.5l4 4"/><path d="M18.5 5.5 9 15l-3.5 3.5-2 2"/><path d="M12 7.5 16 11.5"/><path d="M9 10.5l4 4"/></svg></div><h3>독감</h3>
     <p>만 65세 이상, 임신부, 생후 6개월–13세가 지원 대상입니다. 지원 기간은 매년 별도로 공고됩니다.</p></div>
   <div class="card"><div class="icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3.5v9"/><path d="M12 8.5c-1.5 0-2.5 1.2-3 3-.6 2.2-1 4-2.6 5.4-1.2 1-2.4.4-2.4-1v-3.5c0-2.6 1.4-4.6 3-5.4"/><path d="M12 8.5c1.5 0 2.5 1.2 3 3 .6 2.2 1 4 2.6 5.4 1.2 1 2.4.4 2.4-1v-3.5c0-2.6-1.4-4.6-3-5.4"/></svg></div><h3>폐렴구균</h3>
-    <p>만 65세 이상은 23가 다당 백신을 보건소 및 지정 의료기관에서 무료 접종할 수 있습니다.</p></div>
+    <p>만 65세 이상은 23가 다당 백신을 보건소 및 지정 의료기관에서 접종하실 수 있습니다.</p></div>
   <div class="card"><div class="icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3.5 19 6.3v5.6c0 4.1-2.9 7.4-7 8.4-4.1-1-7-4.3-7-8.4V6.3Z"/><path d="M9.3 12.2l1.9 1.9 3.6-3.7"/></svg></div><h3>자궁경부암</h3>
     <p>만 12세 여아는 국가예방접종 지원 대상입니다. 대상 여부는 문의해 주십시오.</p></div>
 </div>
@@ -816,9 +845,6 @@ HPV 6, 11, 16, 18형에 의한 자궁경부암과 생식기 사마귀(첨형콘�
   </details>
 </div>
 
-<div class="byline" style="max-width:74ch">
-  <small>심장내과 전문의</small><b>원동준</b>
-</div>
 </div></section>
 
 <section class="cta"><div class="wrap head-center">
@@ -895,6 +921,17 @@ function markToday(){
   });
 }
 document.addEventListener("click",function(e){
+  var tog=e.target.closest(".nav-toggle");
+  if(tog){
+    var h=tog.closest(".site-header");
+    var open=h.classList.toggle("nav-open");
+    tog.setAttribute("aria-expanded",open?"true":"false");
+    return;
+  }
+  if(e.target.closest(".site-nav a")){
+    var hd=document.querySelector(".site-header");
+    if(hd)hd.classList.remove("nav-open");
+  }
   var t=e.target.closest(".has-sub>a");
   if(t&&window.matchMedia("(hover:none)").matches){
     e.preventDefault();t.parentNode.classList.toggle("open");

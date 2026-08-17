@@ -68,6 +68,12 @@ a{color:inherit}p{margin:0 0 14px}
   font-family:"IBM Plex Mono",monospace;font-size:13.5px;padding:11px 20px;border-radius:999px;
   box-shadow:0 10px 26px -14px rgba(0,80,201,.9)}
 .call-btn svg{width:14px;height:14px;stroke:#fff;fill:none;stroke-width:1.6}
+.nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;
+  padding:0 11px;border:1px solid var(--b100);border-radius:12px;background:#fff;cursor:pointer}
+.nav-toggle span{display:block;height:2px;background:var(--b700);border-radius:2px;transition:.2s}
+.site-header.nav-open .nav-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.site-header.nav-open .nav-toggle span:nth-child(2){opacity:0}
+.site-header.nav-open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 .lang{display:inline-flex;align-items:center;gap:6px;text-decoration:none;
   font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.1em;color:var(--b700);
   border:1px solid var(--b100);border-radius:999px;padding:9px 14px;background:#fff}
@@ -135,7 +141,7 @@ a{color:inherit}p{margin:0 0 14px}
 /* stat strip */
 .stat-strip{position:relative;z-index:2;background:rgba(255,255,255,.13);
   border-top:1px solid rgba(255,255,255,.2);backdrop-filter:blur(10px)}
-.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:32px 0}
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:32px 0}
 .stat{text-align:center;border-right:1px solid rgba(255,255,255,.18)}
 .stat:last-child{border-right:none}
 .stat b{display:block;font-size:clamp(21px,2.4vw,32px);font-weight:600;letter-spacing:-.05em;line-height:1.2;color:#fff}
@@ -158,8 +164,8 @@ a{color:inherit}p{margin:0 0 14px}
 /* about split */
 .split{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
 .split.narrow-left{grid-template-columns:.95fr 1.05fr}
-.photo-frame{position:relative;border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);
-  background:linear-gradient(150deg,var(--b100),var(--b50));aspect-ratio:4/3}
+.photo-frame{position:relative;width:100%;border-radius:var(--r);overflow:hidden;
+  box-shadow:var(--sh);background:linear-gradient(150deg,var(--b100),var(--b50));aspect-ratio:4/3}
 .photo-frame img{width:100%;height:100%;object-fit:cover;display:block;
   position:relative;z-index:1}
 .photo-frame .ph{position:absolute;inset:0;display:grid;place-items:center;text-align:center;
@@ -203,7 +209,7 @@ a{color:inherit}p{margin:0 0 14px}
 .hours-wrap{display:grid;grid-template-columns:1.25fr .75fr;gap:34px;align-items:stretch}
 .hours{width:100%;border-collapse:separate;border-spacing:0;background:#fff;
   border:1px solid var(--b100);border-radius:var(--r);overflow:hidden;box-shadow:var(--sh)}
-.hours th,.hours td{padding:15px 24px;border-bottom:1px solid var(--b50);font-size:15.5px;
+.hours th,.hours td{padding:12px 24px;border-bottom:1px solid var(--b50);font-size:15.5px;
   vertical-align:middle}
 .hours thead th{background:var(--b50);color:var(--b700);font-family:"IBM Plex Mono",monospace;
   font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;text-align:left}
@@ -311,7 +317,7 @@ a{color:inherit}p{margin:0 0 14px}
   color:var(--b500);letter-spacing:.08em;font-weight:400;padding-top:3px}
 
 /* gallery */
-.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
 .shot{background:#fff;border:1px solid var(--b100);border-radius:var(--r);overflow:hidden;
   box-shadow:var(--sh)}
 .shot-img{position:relative;aspect-ratio:3/2;background:linear-gradient(150deg,var(--b50),var(--b100));
@@ -320,8 +326,8 @@ a{color:inherit}p{margin:0 0 14px}
 .shot-img .ph{position:absolute;inset:0;display:grid;place-items:center;text-align:center;
   font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;color:#7d92ab;
   line-height:2}
-.shot-cap{padding:16px 18px}
-.shot-cap b{display:block;font-size:15.5px;color:var(--b800);letter-spacing:-.03em;margin-bottom:5px}
+.shot-cap{padding:18px 22px}
+.shot-cap b{display:block;font-size:16.5px;color:var(--b800);letter-spacing:-.03em;margin-bottom:5px}
 .shot-cap span{font-size:13.5px;color:#5d7590;line-height:1.7}
 
 
@@ -397,6 +403,9 @@ a{color:inherit}p{margin:0 0 14px}
 .vessel svg{width:100%;height:auto;max-width:150px;margin:0 auto 14px;display:block}
 .vessel b{display:block;font-size:16px;color:var(--b800);letter-spacing:-.03em;margin-bottom:5px}
 .vessel span{font-size:13.5px;color:#7d92ab;line-height:1.6;display:block}
+
+.cred-line{font-family:"IBM Plex Mono",monospace;font-size:12.5px;letter-spacing:.04em;
+  color:var(--b700);margin:-4px 0 18px;word-break:keep-all;line-height:1.9}
 
 /* accreditation */
 .accred{display:grid;grid-template-columns:400px 1fr;gap:44px;align-items:center}
@@ -491,7 +500,7 @@ a:focus-visible{outline:2px solid var(--b500);outline-offset:3px}
 }
 @media (max-width:980px){
   .dept-grid{grid-template-columns:repeat(2,1fr)}
-  .split,.route-grid,.hours-wrap,.footer-grid{grid-template-columns:1fr;gap:38px}
+  .split,.split.narrow-left,.route-grid,.hours-wrap,.footer-grid{grid-template-columns:1fr;gap:32px}
   .hero{min-height:0}
   .badge-card{top:auto;bottom:22px;right:20px;padding:8px 18px 8px 10px}
   .badge-card b{font-size:15px}
@@ -500,20 +509,39 @@ a:focus-visible{outline:2px solid var(--b500);outline-offset:3px}
   .greet{grid-template-columns:1fr;gap:30px}
   .head-split{grid-template-columns:1fr;gap:30px}
   .head-split .shot-img{max-width:240px;margin:0}
+  .check-list li{font-size:14.5px}
+  .cred-line{font-size:12px;margin-bottom:14px}
   .accred{grid-template-columns:1fr;gap:28px}
   .cv-grid{grid-template-columns:1fr}
   .vessels{grid-template-columns:1fr;gap:14px}
+  .gallery{grid-template-columns:1fr;gap:18px}
   .greet .photo-frame{max-width:260px}
   .band{padding:64px 0}
 }
 @media (max-width:640px){
   .wrap{padding:0 26px}
-  .header-inner{min-height:64px;gap:12px}
-  .logo{margin-right:0;flex:1 1 100%}
-  .site-nav{order:3;flex:1 1 100%;gap:18px;overflow-x:auto;font-size:14px;padding-bottom:4px;
-    white-space:nowrap}
-  .submenu{position:fixed;left:20px;right:20px;min-width:0}
-  .call-btn{order:2}
+  .header-inner{min-height:64px;gap:10px;flex-wrap:nowrap;position:relative}
+  .logo{margin-right:auto;flex:0 1 auto;min-width:0}
+  .logo-txt b{font-size:16px}
+  .logo-mark img{height:34px}
+  .nav-toggle{display:flex;order:4;flex:0 0 auto}
+  .lang{order:2;padding:8px 11px;font-size:11px}
+  .call-btn{order:3;padding:9px 13px;font-size:0;gap:0}
+  .call-btn svg{width:17px;height:17px}
+  .site-nav{order:5;display:none;position:absolute;top:100%;left:-20px;right:-20px;
+    flex-direction:column;gap:0;background:#fff;border-top:1px solid var(--line);
+    padding:8px 20px 16px;box-shadow:0 20px 40px -24px rgba(6,42,99,.5);max-height:75vh;
+    overflow-y:auto}
+  .site-header.nav-open .site-nav{display:flex}
+  .site-nav a{padding:14px 2px;font-size:15.5px;border-bottom:1px solid var(--b50)}
+  .site-nav a[aria-current=page]:after{display:none}
+  .has-sub{display:block;position:static}
+  .has-sub>a i{display:none}
+  .submenu{position:static;display:flex;min-width:0;border:none;box-shadow:none;
+    background:transparent;padding:0 0 8px 16px;margin:0;border-radius:0}
+  .submenu a{padding:11px 2px;font-size:14.5px;border-bottom:none;color:#5d7590}
+  .site-header.over .site-nav{background:#fff}
+  .site-header.over .site-nav a{color:var(--ink)}
   .hero-inner{padding:44px 0 36px}
   .hero-scrim{background:linear-gradient(180deg,rgba(6,42,99,.9) 0%,rgba(6,42,99,.82) 55%,
     rgba(0,59,150,.6) 100%)}
@@ -544,6 +572,9 @@ a:focus-visible{outline:2px solid var(--b500);outline-offset:3px}
 <nav class="site-nav"><a href="../">홈</a><span class="has-sub"><a href="../care/" aria-current="page">진료 영역<i></i></a><span class="submenu"><a href="../care/">전체보기</a><a href="../exam/" class="on">검사</a><a href="../endoscopy/">위내시경</a><a href="../checkup/">건강검진</a><a href="../vaccine/">예방접종</a></span></span><span class="has-sub"><a href="../health/">질환 정보<i></i></a><span class="submenu"><a href="../health/">심근경색과 협심증</a><a href="../diabetes/">당뇨 관리</a><a href="../respiratory/">호흡기 클리닉</a></span></span><a href="../tour/">병원 둘러보기</a><a href="../about/">의료진</a><a href="../location/">오시는 길</a></nav>
 <a class="lang" href="../en/">EN</a>
 <a class="call-btn" href="tel:0317188275"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15.5 21A13.5 13.5 0 0 1 3 8.5 2.5 2.5 0 0 1 5.5 6h2L9 9.5 7 11a10 10 0 0 0 6 6l1.5-2 3.5 1.5v2A2.5 2.5 0 0 1 15.5 21Z"/></svg> 031-718-8275</a>
+<button class="nav-toggle" aria-label="메뉴 열기" aria-expanded="false">
+  <span></span><span></span><span></span>
+</button>
 </div></header>
 <main>
 <section class="page-head"><div class="wrap">
@@ -559,31 +590,29 @@ a:focus-visible{outline:2px solid var(--b500);outline-offset:3px}
 <div class="cards">
   <div class="card"><div class="icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M5.5 12h2.6l1.6-3.6 2.4 7.2 1.8-4.6 1.2 1h3.4"/></svg></div><h3>심전도</h3>
     <p>부정맥과 심근허혈을 확인하는 기본 검사입니다.</p>
-    <div class="meta"><span>RESTING ECG</span><span>약 5분</span></div></div>
+    <div class="meta"><span>RESTING ECG</span></div></div>
   <div class="card"><div class="icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20.5S3.5 15 3.5 9.2A4.7 4.7 0 0 1 12 6.4a4.7 4.7 0 0 1 8.5 2.8c0 5.8-8.5 11.3-8.5 11.3Z"/><path d="M4.6 12h3.1l1.5-3 2.3 6 1.7-4 1.2 1h4.9"/></svg></div><h3>심장초음파</h3>
     <p>좌심실 수축 기능, 판막 상태, 심낭 이상을 직접 관찰합니다.</p>
-    <div class="meta"><span>ECHOCARDIOGRAPHY</span><span>약 20–30분</span></div></div>
+    <div class="meta"><span>ECHOCARDIOGRAPHY</span></div></div>
   <div class="card"><div class="icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3.5a8.5 8.5 0 0 1 8.5 8.5"/><path d="M12 8a4 4 0 0 1 4 4"/><circle cx="12" cy="12" r="1.5"/><path d="M3.5 12a8.5 8.5 0 0 0 8.5 8.5"/></svg></div><h3>운동부하 심초음파</h3>
     <p>안정 시에는 정상이나 활동 시 증상이 발생하는 경우 시행합니다.</p>
-    <div class="meta"><span>STRESS ECHO</span><span>약 40분</span></div></div>
+    <div class="meta"><span>STRESS ECHO</span></div></div>
   <div class="card"><div class="icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 3.5v5.5a4 4 0 0 0 4 4 4 4 0 0 1 4 4v3.5"/><path d="M16 3.5v3"/><circle cx="8" cy="20.5" r="1.5"/></svg></div><h3>경동맥초음파</h3>
     <p>경동맥 내중막 두께와 죽상경화 정도를 측정해 뇌졸중 위험도를 평가합니다.</p>
-    <div class="meta"><span>CAROTID DOPPLER</span><span>약 15분</span></div></div>
+    <div class="meta"><span>CAROTID DOPPLER</span></div></div>
 </div>
-<div class="notice"><p>검사 비용은 증상과 병력에 따른 급여 적용 여부에 따라 달라집니다.
-정확한 금액은 진료 시 안내해 드리며, 미리 확인이 필요하시면 031-718-8275로 문의해 주십시오.</p></div>
+<div class="notice"><p>증상과 병력에 따라 필요한 검사를 선택합니다.
+검사 가능 여부와 소요 시간은 031-718-8275로 문의해 주십시오.</p></div>
 </div></section>
 
 <section class="band tinted"><div class="wrap split">
 <div>
   <p class="eyebrow">Process</p>
-  <h2>한 번의 방문으로<br>끝냅니다</h2>
-  <p class="lede" style="margin-bottom:0">접수부터 결과 설명까지 같은 날 진행합니다.
-  초음파는 소요 시간이 있어 진료 종료 1시간 전까지 접수해 주시면 당일 시행이 가능합니다.</p>
-  <ul class="check-list">
+  <h2>검사 과정</h2>
+  <ul class="check-list" style="margin-top:8px">
     <li><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4.5 12.5l5 5L20 6.5"/></svg><span>진찰 — 증상과 위험인자를 확인하고 필요한 검사를 결정합니다</span></li>
     <li><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4.5 12.5l5 5L20 6.5"/></svg><span>검사 — 전문의가 직접 시행합니다</span></li>
-    <li><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4.5 12.5l5 5L20 6.5"/></svg><span>설명 — 같은 날 결과지를 함께 보며 이후 계획을 정합니다</span></li>
+    <li><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4.5 12.5l5 5L20 6.5"/></svg><span>설명 — 결과지를 함께 보며 이후 계획을 정합니다</span></li>
   </ul>
 </div>
 <div class="photo-frame"><div class="ph">초음파 검사실 사진<br>1200 × 900 px</div><img src="../images/exam.jpg" alt="" loading="lazy" onerror="this.remove()"></div>
@@ -634,36 +663,13 @@ a:focus-visible{outline:2px solid var(--b500);outline-offset:3px}
   <div class="card"><div class="icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3.5v9"/><path d="M12 8.5c-1.5 0-2.5 1.2-3 3-.6 2.2-1 4-2.6 5.4-1.2 1-2.4.4-2.4-1v-3.5c0-2.6 1.4-4.6 3-5.4"/><path d="M12 8.5c1.5 0 2.5 1.2 3 3 .6 2.2 1 4 2.6 5.4 1.2 1 2.4.4 2.4-1v-3.5c0-2.6-1.4-4.6-3-5.4"/></svg></div><h3>흉부 X-ray</h3>
     <p>원내 X-Ray실에서 촬영합니다. 폐렴과 기관지 질환 확인, 심장 크기 평가,
     건강검진 항목에 사용됩니다.</p>
-    <div class="meta"><span>CHEST X-RAY</span><span>당일 확인</span></div></div>
+    <div class="meta"><span>CHEST X-RAY</span></div></div>
   <div class="card"><div class="icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3.5S6.5 9.7 6.5 13.6a5.5 5.5 0 0 0 11 0C17.5 9.7 12 3.5 12 3.5Z"/><path d="M9.5 14a2.5 2.5 0 0 0 2.5 2.5"/></svg></div><h3>인플루엔자 항원검사</h3>
-    <p>독감 A·B형을 당일 감별합니다.</p>
-    <div class="meta"><span>RAPID ANTIGEN</span><span>약 15분</span></div></div>
+    <p>독감 A·B형을 감별합니다.</p>
+    <div class="meta"><span>RAPID ANTIGEN</span></div></div>
   <div class="card"><div class="icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14 3.5H7a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8.5Z"/><path d="M14 3.5v5h5"/><path d="M9 13h6M9 16.5h4"/></svg></div><h3>혈액 · 소변검사</h3>
     <p>혈당, 지질, 간기능, 신장기능 등 일반 검체검사를 시행합니다.</p></div>
 </div>
-<div class="hours-wrap">
-<table class="hours" data-hours>
-<thead><tr><th scope="col">요일</th><th scope="col">진료시간</th></tr></thead>
-<tbody>
-<tr data-days="1,2,4,5"><th scope="row">월·화·목·금</th><td>09:00 – 18:00</td></tr>
-<tr data-days="6"><th scope="row">토요일</th><td>09:00 – 13:00</td></tr>
-<tr data-days="3"><th scope="row">수요일</th><td class="off">휴진</td></tr>
-<tr data-days="0"><th scope="row">일요일·공휴일</th><td class="off">휴진</td></tr>
-<tr data-days=""><th scope="row">점심시간</th><td class="off">13:00 – 14:00</td></tr>
-</tbody></table>
-<div class="status-card" data-status-card>
-  <p class="status-line"><span class="status-dot"></span>Today</p>
-  <p class="status-headline" data-status-headline>진료시간 확인 중</p>
-  <p class="status-sub" data-status-sub>&nbsp;</p>
-  <dl class="status-facts">
-    <div class="fact"><dt>평일</dt><dd>09:00 – 18:00</dd></div>
-    <div class="fact"><dt>토요일</dt><dd>09:00 – 13:00</dd></div>
-    <div class="fact"><dt>휴진</dt><dd>수요일 · 일요일 · 공휴일</dd></div>
-    <div class="fact"><dt>전화</dt><dd><a class="mono" href="tel:0317188275" style="color:var(--b700)">031-718-8275</a></dd></div>
-  </dl>
-</div></div>
-<p class="hours-note">수요일은 휴진이며, 토요일은 오전 진료입니다.
-접수는 진료 종료 20분 전까지 완료해 주십시오.</p>
 </div></section>
 
 <section class="cta"><div class="wrap head-center">
@@ -740,6 +746,17 @@ function markToday(){
   });
 }
 document.addEventListener("click",function(e){
+  var tog=e.target.closest(".nav-toggle");
+  if(tog){
+    var h=tog.closest(".site-header");
+    var open=h.classList.toggle("nav-open");
+    tog.setAttribute("aria-expanded",open?"true":"false");
+    return;
+  }
+  if(e.target.closest(".site-nav a")){
+    var hd=document.querySelector(".site-header");
+    if(hd)hd.classList.remove("nav-open");
+  }
   var t=e.target.closest(".has-sub>a");
   if(t&&window.matchMedia("(hover:none)").matches){
     e.preventDefault();t.parentNode.classList.toggle("open");
