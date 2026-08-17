@@ -18,6 +18,7 @@
   --wrap:1180px;
 }
 *{box-sizing:border-box}
+html{overflow-x:hidden}
 body{margin:0;background:#fff;color:var(--ink);overflow-x:hidden;
   font-family:"IBM Plex Sans KR",-apple-system,BlinkMacSystemFont,sans-serif;
   font-size:16px;line-height:1.75;letter-spacing:-.015em;-webkit-font-smoothing:antialiased}
@@ -499,6 +500,31 @@ a:focus-visible{outline:2px solid var(--b500);outline-offset:3px}
   .badge-card{top:26px;right:24px}
 }
 @media (max-width:980px){
+  /* ── 모바일 내비: 햄버거 패널 ── */
+  .site-header{position:relative}
+  .header-inner{min-height:66px;gap:10px;flex-wrap:nowrap}
+  .logo{margin-right:auto;flex:0 1 auto;min-width:0}
+  .nav-toggle{display:flex;flex:0 0 auto;order:4}
+  .lang{order:2;padding:9px 12px;font-size:11px}
+  .call-btn{order:3}
+  .site-nav{order:5;display:none;position:absolute;top:100%;left:0;right:0;width:100%;
+    flex-direction:column;align-items:stretch;gap:0;background:#fff;
+    border-top:1px solid var(--line);padding:6px 26px 18px;z-index:90;
+    box-shadow:0 22px 44px -26px rgba(6,42,99,.55);max-height:78vh;overflow-y:auto}
+  .site-header.nav-open .site-nav{display:flex}
+  .site-nav>a,.has-sub>a{display:block;width:100%;text-align:left;padding:15px 2px;
+    font-size:16px;border-bottom:1px solid var(--b50)}
+  .site-nav a:after{display:none!important}
+  .has-sub{display:block;position:static;width:100%}
+  .has-sub>a i{display:none}
+  .submenu{position:static;display:flex!important;width:100%;min-width:0;border:none;
+    box-shadow:none;background:transparent;padding:4px 0 10px 14px;margin:0;border-radius:0}
+  .submenu a{display:block;width:100%;text-align:left;padding:12px 2px;font-size:14.5px;
+    border-bottom:none;color:#5d7590;white-space:normal}
+  .site-header.over .site-nav{background:#fff}
+  .site-header.over .site-nav a{color:#5d7590}
+  .site-header.over .site-nav a[aria-current=page]{color:var(--b800)}
+
   .dept-grid{grid-template-columns:repeat(2,1fr)}
   .split,.split.narrow-left,.route-grid,.hours-wrap,.footer-grid{grid-template-columns:1fr;gap:32px}
   .hero{min-height:0}
@@ -520,28 +546,10 @@ a:focus-visible{outline:2px solid var(--b500);outline-offset:3px}
 }
 @media (max-width:640px){
   .wrap{padding:0 26px}
-  .header-inner{min-height:64px;gap:10px;flex-wrap:nowrap;position:relative}
-  .logo{margin-right:auto;flex:0 1 auto;min-width:0}
   .logo-txt b{font-size:16px}
-  .logo-mark img{height:34px}
-  .nav-toggle{display:flex;order:4;flex:0 0 auto}
-  .lang{order:2;padding:8px 11px;font-size:11px}
-  .call-btn{order:3;padding:9px 13px;font-size:0;gap:0}
+  .logo-mark img{height:32px}
+  .call-btn{padding:9px 13px;font-size:0;gap:0}
   .call-btn svg{width:17px;height:17px}
-  .site-nav{order:5;display:none;position:absolute;top:100%;left:-20px;right:-20px;
-    flex-direction:column;gap:0;background:#fff;border-top:1px solid var(--line);
-    padding:8px 20px 16px;box-shadow:0 20px 40px -24px rgba(6,42,99,.5);max-height:75vh;
-    overflow-y:auto}
-  .site-header.nav-open .site-nav{display:flex}
-  .site-nav a{padding:14px 2px;font-size:15.5px;border-bottom:1px solid var(--b50)}
-  .site-nav a[aria-current=page]:after{display:none}
-  .has-sub{display:block;position:static}
-  .has-sub>a i{display:none}
-  .submenu{position:static;display:flex;min-width:0;border:none;box-shadow:none;
-    background:transparent;padding:0 0 8px 16px;margin:0;border-radius:0}
-  .submenu a{padding:11px 2px;font-size:14.5px;border-bottom:none;color:#5d7590}
-  .site-header.over .site-nav{background:#fff}
-  .site-header.over .site-nav a{color:var(--ink)}
   .hero-inner{padding:44px 0 36px}
   .hero-scrim{background:linear-gradient(180deg,rgba(6,42,99,.9) 0%,rgba(6,42,99,.82) 55%,
     rgba(0,59,150,.6) 100%)}
