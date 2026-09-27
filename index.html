@@ -652,6 +652,53 @@ a:focus-visible{outline:2px solid var(--b500);outline-offset:3px}
   .price-table th,.price-table td{padding:12px 16px;font-size:14px}
   .doctor{padding:26px}
 }
+/* type scale — narrower gap between largest and smallest text; left-aligned section heads */
+body{word-break:keep-all;overflow-wrap:break-word}
+.head-center{text-align:left}
+.head-center .lede{margin-left:0;margin-right:0}
+.cta p{margin-left:0}
+.cta .actions{justify-content:flex-start!important}
+.eyebrow{font-size:12.5px;letter-spacing:.14em}
+.hero h1{font-size:clamp(30px,4.2vw,46px)}
+.hero-sub .tagline{font-size:14px}
+.hero-sub p{font-size:15.5px}
+.page-head h1{font-size:clamp(28px,3.6vw,38px)}
+.band h2{font-size:clamp(24px,2.8vw,32px)}
+.cta h2{font-size:clamp(23px,2.6vw,29px)}
+.stat b{font-size:clamp(19px,1.9vw,25px)}
+.stat span{font-size:13.5px}
+.badge-card small,.dept small{font-size:13px}
+.dept-lg b{font-size:20px}
+.card h3{font-size:19px}
+.card p,.card ul{font-size:15px}
+.card .meta{font-size:13px}
+.doctor h3{font-size:23px}
+.greet-open,.affil-card b,.price-table caption{font-size:18.5px}
+.article h3{font-size:20px}
+.hours th,.hours td{font-size:15px}
+.hours thead th,.price-table thead th,.fact dt,.route-list li b,.doctor .role,
+.affil-card small,.status-line{font-size:12.5px}
+.hours-note,.shot-cap span,.vessel span,.partner span,.sketch-cap{font-size:14px}
+.site-footer .footer-bottom{font-size:13px}
+@media (max-width:640px){
+  body{font-size:15.5px}
+  .hero h1{font-size:28px;line-height:1.25}
+  .band h2{font-size:24px}
+  .stat b{font-size:19px}
+  .stat span{font-size:13px}
+  .band .lede{font-size:15px;margin-bottom:32px}
+  .dept-lg b{font-size:18px}
+  .dept-lg em{font-size:14px}
+  .card{padding:24px 22px}
+  .card .icon{width:44px;height:44px;border-radius:12px;margin-bottom:14px}
+  .card .icon svg{width:22px;height:22px}
+  .card h3{font-size:18px}
+  .card p,.card ul{font-size:14.5px}
+  .doctor h3{font-size:21px}
+  .lang{font-size:12px}
+  .badge-item{flex-direction:column;gap:6px}
+  .badge-item .yr{flex:none}
+}
 </style>
 </head>
 <body>
