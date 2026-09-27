@@ -699,6 +699,18 @@ body{word-break:keep-all;overflow-wrap:break-word}
   .badge-item{flex-direction:column;gap:6px}
   .badge-item .yr{flex:none}
 }
+/* hero spacing & stat boxes */
+.stat-grid{gap:14px;padding:26px 0}
+.stat,.stat:nth-child(2n),.stat:nth-child(n+3){display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;min-height:104px;padding:16px 12px;border:1px solid rgba(255,255,255,.2);border-radius:14px;
+  background:rgba(255,255,255,.07)}
+.stat b{margin-bottom:4px}
+@media (max-width:1080px){.hero-copy{padding-left:40px;padding-right:40px}}
+@media (max-width:640px){
+  .hero-copy{padding-left:26px;padding-right:26px}
+  .stat-grid{gap:10px;padding:20px 0}
+  .stat,.stat:nth-child(2n),.stat:nth-child(n+3){min-height:92px;padding:14px 8px}
+}
 </style>
 </head>
 <body>
@@ -734,7 +746,7 @@ body{word-break:keep-all;overflow-wrap:break-word}
       <h1>정확한 진단,<br>흔들림 없는 관리.</h1>
       <div class="hero-sub">
         <div class="tagline">메디원 심장내과</div>
-        <p>숙련된 심장내과 전문의가 검사부터 판독, 결과 설명까지 직접 담당합니다.</p>
+        <p>숙련된 심장내과 전문의가 검사부터<br>판독, 결과 설명까지 직접 담당합니다.</p>
       </div>
     </div>
   </div>
