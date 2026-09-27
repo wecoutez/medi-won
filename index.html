@@ -246,6 +246,13 @@ a{color:inherit}p{margin:0 0 14px}
   line-height:1.35}
 .dept small{font-size:12.5px;color:#7d92ab;font-family:"IBM Plex Mono",monospace;
   letter-spacing:.08em}
+.dept-lg{flex-direction:column;align-items:flex-start;gap:14px;padding:32px 30px 28px}
+.dept-lg .dept-icon{width:60px;height:60px;border-radius:16px;background:var(--b50)}
+.dept-lg b{font-size:21px;margin-bottom:2px}
+.dept-lg em{display:block;word-break:keep-all;font-style:normal;font-size:14.5px;line-height:1.65;color:#5d7590;margin-top:12px}
+.dept-go{margin-top:auto;display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:var(--b700)}
+.dept-go svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s}
+.dept-lg:hover .dept-go svg{transform:translateX(4px)}
 
 /* generic cards */
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
@@ -593,6 +600,7 @@ a:focus-visible{outline:2px solid var(--b500);outline-offset:3px}
   .site-header.over .site-nav a[aria-current=page]{color:var(--b800)}
 
   .dept-grid{grid-template-columns:repeat(2,1fr)}
+  .dept-grid.main3{grid-template-columns:1fr}
   .split,.split.narrow-left,.route-grid,.hours-wrap,.footer-grid{grid-template-columns:1fr;gap:32px}
   .hero{min-height:0}
   .badge-card{top:auto;bottom:22px;right:20px;padding:8px 18px 8px 10px}
@@ -710,21 +718,16 @@ a:focus-visible{outline:2px solid var(--b500);outline-offset:3px}
     <p class="lede">심장 질환의 진단과 추적 관찰이 중심이며,
     위험인자에 해당하는 만성질환과 일반 내과 진료를 함께 수행합니다.</p>
   </div>
-  <div class="dept-grid">
-    <a class="dept" href="care/"><span class="dept-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M5.5 12h2.6l1.6-3.6 2.4 7.2 1.8-4.6 1.2 1h3.4"/></svg></span>
-      <span><b>부정맥</b><small>ARRHYTHMIA</small></span></a>
-    <a class="dept" href="care/"><span class="dept-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20.5S3.5 15 3.5 9.2A4.7 4.7 0 0 1 12 6.4a4.7 4.7 0 0 1 8.5 2.8c0 5.8-8.5 11.3-8.5 11.3Z"/><path d="M4.6 12h3.1l1.5-3 2.3 6 1.7-4 1.2 1h4.9"/></svg></span>
-      <span><b>심부전 · 판막</b><small>HEART FAILURE</small></span></a>
-    <a class="dept" href="care/"><span class="dept-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 3.5v5.5a4 4 0 0 0 4 4 4 4 0 0 1 4 4v3.5"/><path d="M16 3.5v3"/><circle cx="8" cy="20.5" r="1.5"/></svg></span>
-      <span><b>관상동맥</b><small>CORONARY</small></span></a>
-    <a class="dept" href="diabetes/"><span class="dept-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3.5S6.5 9.7 6.5 13.6a5.5 5.5 0 0 0 11 0C17.5 9.7 12 3.5 12 3.5Z"/><path d="M9.5 14a2.5 2.5 0 0 0 2.5 2.5"/></svg></span>
-      <span><b>당뇨 · 고혈압 관리</b><small>CHRONIC CARE</small></span></a>
-    <a class="dept" href="exam/"><span class="dept-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3.5a8.5 8.5 0 0 1 8.5 8.5"/><path d="M12 8a4 4 0 0 1 4 4"/><circle cx="12" cy="12" r="1.5"/><path d="M3.5 12a8.5 8.5 0 0 0 8.5 8.5"/></svg></span>
-      <span><b>초음파 검사</b><small>ULTRASOUND</small></span></a>
-    <a class="dept" href="care/"><span class="dept-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3.5v9"/><path d="M12 8.5c-1.5 0-2.5 1.2-3 3-.6 2.2-1 4-2.6 5.4-1.2 1-2.4.4-2.4-1v-3.5c0-2.6 1.4-4.6 3-5.4"/><path d="M12 8.5c1.5 0 2.5 1.2 3 3 .6 2.2 1 4 2.6 5.4 1.2 1 2.4.4 2.4-1v-3.5c0-2.6-1.4-4.6-3-5.4"/></svg></span>
-      <span><b>감기 · 호흡기</b><small>GENERAL</small></span></a>
-    <a class="dept" href="vaccine/"><span class="dept-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3.5 19 6.3v5.6c0 4.1-2.9 7.4-7 8.4-4.1-1-7-4.3-7-8.4V6.3Z"/><path d="M9.3 12.2l1.9 1.9 3.6-3.7"/></svg></span>
-      <span><b>예방접종</b><small>VACCINATION</small></span></a>
+  <div class="dept-grid main3">
+    <a class="dept dept-lg" href="care/"><span class="dept-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20.5S3.5 15 3.5 9.2A4.7 4.7 0 0 1 12 6.4a4.7 4.7 0 0 1 8.5 2.8c0 5.8-8.5 11.3-8.5 11.3Z"/><path d="M4.6 12h3.1l1.5-3 2.3 6 1.7-4 1.2 1h4.9"/></svg></span>
+      <span class="dept-body"><b>진료범위</b><small>CARE</small><em>심장 증상 · 고혈압 · 당뇨 · 고지혈증 · 갑상선 · 감기 등 일반 내과</em></span>
+      <span class="dept-go">자세히 보기 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+    <a class="dept dept-lg" href="exam/"><span class="dept-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3.5a8.5 8.5 0 0 1 8.5 8.5"/><path d="M12 8a4 4 0 0 1 4 4"/><circle cx="12" cy="12" r="1.5"/><path d="M3.5 12a8.5 8.5 0 0 0 8.5 8.5"/></svg></span>
+      <span class="dept-body"><b>검사</b><small>DIAGNOSTICS</small><em>심전도 · 심장초음파 · 운동부하 · 홀터 · 경동맥·갑상선 초음파 · X-ray · 혈액검사</em></span>
+      <span class="dept-go">자세히 보기 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+    <a class="dept dept-lg" href="vaccine/"><span class="dept-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3.5 19 6.3v5.6c0 4.1-2.9 7.4-7 8.4-4.1-1-7-4.3-7-8.4V6.3Z"/><path d="M9.3 12.2l1.9 1.9 3.6-3.7"/></svg></span>
+      <span class="dept-body"><b>예방접종</b><small>VACCINATION</small><em>대상포진 · 폐렴구균 · A형·B형간염 · 파상풍 · 독감</em></span>
+      <span class="dept-go">자세히 보기 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
   </div>
 </div></section>
 
