@@ -645,6 +645,8 @@ body{word-break:keep-all;overflow-wrap:break-word}
   .badge-item{flex-direction:column;gap:6px}
   .badge-item .yr{flex:none}
 }
+/* decorative shapes must never catch clicks */
+.band:before,.band:after,.cta:before,.cta:after,.page-head:before,.page-head:after,.hero:before,.hero:after{pointer-events:none}
 </style>
 </head>
 <body>
