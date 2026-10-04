@@ -726,6 +726,8 @@ a.dept{touch-action:manipulation;-webkit-tap-highlight-color:rgba(0,80,201,.08)}
   .dept-lg:hover .dept-go svg{transform:none}
   .btn:hover{transform:none}
 }
+/* decorative shapes must never catch clicks */
+.band:before,.band:after,.cta:before,.cta:after,.page-head:before,.page-head:after,.hero:before,.hero:after{pointer-events:none}
 </style>
 </head>
 <body>

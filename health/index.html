@@ -652,6 +652,8 @@ body{word-break:keep-all;overflow-wrap:break-word}
 .card-img{margin:0 -26px 20px;aspect-ratio:4/3;background:var(--b50)}
 .card-img img{width:100%;height:100%;object-fit:cover;display:block}
 @media (max-width:640px){.card-img{margin:0 -22px 16px}}
+/* decorative shapes must never catch clicks */
+.band:before,.band:after,.cta:before,.cta:after,.page-head:before,.page-head:after,.hero:before,.hero:after{pointer-events:none}
 </style>
 </head>
 <body>
