@@ -646,6 +646,10 @@ body{word-break:keep-all;overflow-wrap:break-word}
   .badge-item{flex-direction:column;gap:6px}
   .badge-item .yr{flex:none}
 }
+.card.has-img{overflow:hidden;padding-top:0}
+.card-img{margin:0 -26px 20px;aspect-ratio:4/3;background:var(--b50)}
+.card-img img{width:100%;height:100%;object-fit:cover;display:block}
+@media (max-width:640px){.card-img{margin:0 -22px 16px}}
 </style>
 </head>
 <body>
@@ -672,8 +676,15 @@ body{word-break:keep-all;overflow-wrap:break-word}
 <section class="band blob"><div class="wrap">
 <h2>심장 검사</h2>
 <p class="lede">증상과 위험인자에 따라 필요한 검사를 선택합니다. 모든 검사를 일괄 시행하지 않습니다.</p>
-<div class="photo-full" style="margin:30px 0 0;max-width:900px">
-  <img src="/assets/cardiac-tests.webp" alt="심전도, 심장초음파, 운동부하 검사, 홀터 검사(24시간 심전도), 24시간 혈압검사, 경동맥초음파" width="1150" height="770" decoding="async">
+<div class="cards" style="margin-top:30px">
+  <div class="card has-img"><div class="card-img"><img src="/assets/exam-ecg.webp" alt="심전도 기계에서 출력되는 심전도 기록지" width="640" height="480" loading="lazy" decoding="async"></div><h3>심전도</h3>
+    <p>부정맥과 심근허혈을 확인하는 기본 검사입니다.</p></div>
+  <div class="card has-img"><div class="card-img"><img src="/assets/exam-stress.webp" alt="트레드밀 위에서 걷는 운동부하 검사" width="640" height="480" loading="lazy" decoding="async"></div><h3>운동부하 검사</h3>
+    <p>운동 중 심장의 전기적 변화와 혈압 반응을 확인해 관상동맥질환과 운동 시 이상 반응을 평가합니다.</p></div>
+  <div class="card has-img"><div class="card-img"><img src="/assets/exam-holter.webp" alt="허리에 찬 홀터 심전도 기록기" width="640" height="480" loading="lazy" decoding="async"></div><h3>홀터 검사</h3>
+    <p>24시간 동안 심전도를 기록해 일상생활 중 발생하는 부정맥을 정확히 진단합니다.</p></div>
+  <div class="card has-img"><div class="card-img"><img src="/assets/exam-abpm.webp" alt="위팔 커프와 허리의 휴대용 측정기로 하는 24시간 혈압검사" width="640" height="480" loading="lazy" decoding="async"></div><h3>24시간 혈압검사</h3>
+    <p>24시간 동안 혈압 변화를 측정해 고혈압의 정확한 진단과 치료 효과를 평가합니다.</p></div>
 </div>
 <div class="notice"><p>증상과 병력에 따라 필요한 검사를 선택합니다.
 검사 가능 여부와 소요 시간은 031-718-8275로 문의해 주십시오.</p></div>
@@ -685,8 +696,13 @@ body{word-break:keep-all;overflow-wrap:break-word}
 <p class="eyebrow">Ultrasonography</p>
 <h2>초음파 검사</h2>
 <p class="lede">방사선 피폭이 없고 통증이 없으며, 전문의가 화면을 보며 직접 시행합니다.</p>
-<div class="photo-full" style="margin:30px 0 0;max-width:980px">
-  <img src="/assets/ultrasound-tests.webp" alt="심장초음파, 경동맥초음파, 갑상선초음파" width="1150" height="767" loading="lazy" decoding="async">
+<div class="cards" style="margin-top:30px">
+  <div class="card has-img"><div class="card-img"><img src="/assets/exam-echo-machine.webp" alt="심장 단면이 보이는 심장초음파 장비" width="640" height="480" loading="lazy" decoding="async"></div><h3>심장초음파</h3>
+    <p>좌심실 수축 기능, 판막 상태, 심방 이상을 직접 관찰합니다.</p></div>
+  <div class="card has-img"><div class="card-img"><img src="/assets/exam-carotid.webp" alt="목 옆쪽에 탐촉자를 대는 경동맥초음파" width="640" height="480" loading="lazy" decoding="async"></div><h3>경동맥초음파</h3>
+    <p>경동맥 내중막 두께와 죽상경화 정도를 측정해 뇌졸중 위험도를 평가합니다.</p></div>
+  <div class="card has-img"><div class="card-img"><img src="/assets/exam-thyroid.webp" alt="목 앞쪽에 탐촉자를 대는 갑상선초음파" width="640" height="480" loading="lazy" decoding="async"></div><h3>갑상선초음파</h3>
+    <p>갑상선 결절과 크기, 형태 이상을 확인합니다. 호르몬 검사와 함께 판단합니다.</p></div>
 </div>
 </div></section>
 
@@ -694,8 +710,13 @@ body{word-break:keep-all;overflow-wrap:break-word}
 <h2>영상 · 검체검사</h2>
 <p class="lede">진료 중 바로 확인이 필요한 검사는 원내에서 시행합니다.
 흉부 촬영은 X-Ray실에서, 혈액과 소변 검체는 채취 후 검사기관으로 의뢰합니다.</p>
-<div class="photo-full" style="margin:30px 0 0;max-width:980px">
-  <img src="/assets/lab-tests.webp" alt="흉부 X-ray, 인플루엔자 항원검사, 혈액·소변검사" width="1150" height="719" loading="lazy" decoding="async">
+<div class="cards" style="margin-top:30px">
+  <div class="card has-img"><div class="card-img"><img src="/assets/exam-xray.webp" alt="흉부 X-ray 영상을 판독하는 의사" width="640" height="480" loading="lazy" decoding="async"></div><h3>흉부 X-ray</h3>
+    <p>원내 X-Ray실에서 촬영합니다. 폐렴·기관지 질환 확인, 심장 크기 평가, 건강검진 항목에 사용됩니다.</p></div>
+  <div class="card has-img"><div class="card-img"><img src="/assets/exam-flu.webp" alt="독감 신속항원검사 키트와 면봉" width="640" height="480" loading="lazy" decoding="async"></div><h3>인플루엔자 항원검사</h3>
+    <p>독감 A·B형을 감별합니다.</p></div>
+  <div class="card has-img"><div class="card-img"><img src="/assets/exam-lab.webp" alt="채혈 튜브와 소변 검체 용기" width="640" height="480" loading="lazy" decoding="async"></div><h3>혈액 · 소변검사</h3>
+    <p>혈당, 지질, 간기능, 신장기능 등 일반 검체검사를 시행합니다.</p></div>
 </div>
 </div></section>
 
