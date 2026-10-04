@@ -646,6 +646,10 @@ body{word-break:keep-all;overflow-wrap:break-word}
   .badge-item{flex-direction:column;gap:6px}
   .badge-item .yr{flex:none}
 }
+.card.has-img{overflow:hidden;padding-top:0}
+.card-img{margin:0 -26px 20px;aspect-ratio:4/3;background:var(--b50)}
+.card-img img{width:100%;height:100%;object-fit:cover;display:block}
+@media (max-width:640px){.card-img{margin:0 -22px 16px}}
 </style>
 </head>
 <body>
@@ -679,13 +683,13 @@ body{word-break:keep-all;overflow-wrap:break-word}
 <p class="lede">아래 증상은 원인 감별이 우선입니다. 같은 증상이라도 부정맥, 판막질환,
 관상동맥질환, 심부전 중 무엇에서 비롯되었는지에 따라 처치가 달라집니다.</p>
 <div class="cards">
-  <div class="card"><div class="icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20.5S3.5 15 3.5 9.2A4.7 4.7 0 0 1 12 6.4a4.7 4.7 0 0 1 8.5 2.8c0 5.8-8.5 11.3-8.5 11.3Z"/></svg></div><h3>흉통</h3>
+  <div class="card has-img"><div class="card-img"><img src="/assets/sym-chest.webp" alt="가슴에 손을 얹은 흉통 증상" width="640" height="480" loading="lazy" decoding="async"></div><h3>흉통</h3>
     <p>가슴이 조이거나 눌리는 느낌, 활동 시 악화되는 통증.</p></div>
-  <div class="card"><div class="icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M5.5 12h2.6l1.6-3.6 2.4 7.2 1.8-4.6 1.2 1h3.4"/></svg></div><h3>심계항진</h3>
+  <div class="card has-img"><div class="card-img"><img src="/assets/sym-palpitation.webp" alt="손목 맥박을 짚어 보는 모습" width="640" height="480" loading="lazy" decoding="async"></div><h3>심계항진</h3>
     <p>맥이 불규칙하거나 갑자기 빨라지는 증상, 부정맥 의심.</p></div>
-  <div class="card"><div class="icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3.5v9"/><path d="M12 8.5c-1.5 0-2.5 1.2-3 3-.6 2.2-1 4-2.6 5.4-1.2 1-2.4.4-2.4-1v-3.5c0-2.6 1.4-4.6 3-5.4"/><path d="M12 8.5c1.5 0 2.5 1.2 3 3 .6 2.2 1 4 2.6 5.4 1.2 1 2.4.4 2.4-1v-3.5c0-2.6-1.4-4.6-3-5.4"/></svg></div><h3>호흡곤란</h3>
+  <div class="card has-img"><div class="card-img"><img src="/assets/sym-breath.webp" alt="계단에서 숨이 차 난간을 잡은 모습" width="640" height="480" loading="lazy" decoding="async"></div><h3>호흡곤란</h3>
     <p>계단이나 경사에서 유독 숨이 차는 경우, 심부전 감별.</p></div>
-  <div class="card"><div class="icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3.5a8.5 8.5 0 0 1 8.5 8.5"/><path d="M12 8a4 4 0 0 1 4 4"/><circle cx="12" cy="12" r="1.5"/><path d="M3.5 12a8.5 8.5 0 0 0 8.5 8.5"/></svg></div><h3>실신 · 어지럼</h3>
+  <div class="card has-img"><div class="card-img"><img src="/assets/sym-dizzy.webp" alt="침대에 앉아 어지러움을 느끼는 모습" width="640" height="480" loading="lazy" decoding="async"></div><h3>실신 · 어지럼</h3>
     <p>기립 시 아득해지는 증상, 서맥이나 혈압 이상 확인.</p></div>
 </div>
 <div class="notice"><p>흉통이 15분 이상 지속되거나 식은땀·호흡곤란이 동반되면
@@ -715,18 +719,18 @@ body{word-break:keep-all;overflow-wrap:break-word}
 <h2>일반 내과</h2>
 <p class="lede">며칠 내 발생한 증상입니다. 오전 시간대가 비교적 대기가 짧습니다.</p>
 <div class="cards">
-  <div class="card"><div class="icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3.5v9"/><path d="M12 8.5c-1.5 0-2.5 1.2-3 3-.6 2.2-1 4-2.6 5.4-1.2 1-2.4.4-2.4-1v-3.5c0-2.6 1.4-4.6 3-5.4"/><path d="M12 8.5c1.5 0 2.5 1.2 3 3 .6 2.2 1 4 2.6 5.4 1.2 1 2.4.4 2.4-1v-3.5c0-2.6-1.4-4.6-3-5.4"/></svg></div><h3>호흡기</h3>
+  <div class="card has-img"><div class="card-img"><img src="/assets/sym-cold.webp" alt="담요를 두르고 체온계를 든 감기 증상" width="640" height="480" loading="lazy" decoding="async"></div><h3>호흡기</h3>
     <ul><li>발열, 몸살, 인후통</li><li>기침, 객담</li><li>독감 — 당일 항원검사</li>
     <li>기관지염, 폐렴 의심</li></ul>
     <div class="meta"><span>GENERAL</span></div></div>
-  <div class="card"><div class="icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 3.5v4.7a4 4 0 0 0 8 0V3.5"/><path d="M6 3.5H4.2M14 3.5h1.8"/><path d="M10 12.2v1.9a5 5 0 0 0 5 5 3.8 3.8 0 0 0 3.8-3.8v-2.2"/><circle cx="18.8" cy="10.4" r="1.9"/></svg></div><h3>코 · 목</h3>
+  <div class="card has-img"><div class="card-img"><img src="/assets/sym-throat.webp" alt="목을 짚는 인후통 증상" width="640" height="480" loading="lazy" decoding="async"></div><h3>코 · 목</h3>
     <ul><li>비루, 코막힘, 비염</li><li>편도염, 인후두염</li><li>이물감, 애성</li>
     <li>부비동염 의심</li></ul></div>
-  <div class="card"><div class="icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3.5S6.5 9.7 6.5 13.6a5.5 5.5 0 0 0 11 0C17.5 9.7 12 3.5 12 3.5Z"/><path d="M9.5 14a2.5 2.5 0 0 0 2.5 2.5"/></svg></div><h3>소화기</h3>
+  <div class="card has-img"><div class="card-img"><img src="/assets/sym-stomach.webp" alt="배를 감싸 쥔 복통 증상" width="640" height="480" loading="lazy" decoding="async"></div><h3>소화기</h3>
     <ul><li>복통, 소화불량, 속쓰림</li><li>설사, 변비, 장염</li><li>구역, 구토</li>
     <li>역류성 식도염</li></ul>
     <div class="meta"><span>DIGESTIVE</span></div></div>
-  <div class="card"><div class="icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14 3.5H7a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8.5Z"/><path d="M14 3.5v5h5"/><path d="M9 13h6M9 16.5h4"/></svg></div><h3>기타</h3>
+  <div class="card has-img"><div class="card-img"><img src="/assets/sym-other.webp" alt="진료실에서 증상을 기록하는 의사" width="640" height="480" loading="lazy" decoding="async"></div><h3>기타</h3>
     <ul><li>두통, 어지럼증</li><li>원인 불명 발열</li><li>부종, 체중 변화</li>
     <li>배뇨 증상</li></ul></div>
 </div>
