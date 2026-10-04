@@ -646,6 +646,12 @@ body{word-break:keep-all;overflow-wrap:break-word}
   .badge-item{flex-direction:column;gap:6px}
   .badge-item .yr{flex:none}
 }
+.article-img{margin:26px 0 30px;border-radius:14px;overflow:hidden;aspect-ratio:16/9;background:var(--b50)}
+.article-img img{width:100%;height:100%;object-fit:cover;display:block}
+.card.has-img{overflow:hidden;padding-top:0}
+.card-img{margin:0 -26px 20px;aspect-ratio:4/3;background:var(--b50)}
+.card-img img{width:100%;height:100%;object-fit:cover;display:block}
+@media (max-width:640px){.card-img{margin:0 -22px 16px}}
 </style>
 </head>
 <body>
@@ -662,11 +668,16 @@ body{word-break:keep-all;overflow-wrap:break-word}
 </button>
 </div></header>
 <main>
-<section class="page-head"><div class="wrap">
+<section class="page-head"><div class="wrap head-split">
+<div>
 <p class="eyebrow">Health Information</p>
 <h1>심근경색과 협심증</h1>
 <p>가슴 통증으로 내원하시는 분들이 가장 많이 묻는 질환입니다.
 왜 생기는지, 무엇이 다른지, 어떻게 예방하는지 정리했습니다.</p>
+</div>
+<div class="shot-img">
+  <img src="/assets/health-head.webp" alt="심장 모형으로 관상동맥을 설명하는 의사" width="720" height="956" fetchpriority="high">
+</div>
 </div></section>
 
 <section class="band blob"><div class="wrap">
@@ -690,6 +701,7 @@ body{word-break:keep-all;overflow-wrap:break-word}
 <p>협심증은 관상동맥에 콜레스테롤과 다른 지방질 등이 쌓여서 혈관이 좁아짐에 따라
 심장 근육으로 가는 혈류량이 부족해서 생기는 질환입니다.
 흔히 <strong>앞가슴 한복판의 통증</strong>으로 나타납니다.</p>
+<div class="article-img"><img src="/assets/health-angina.webp" alt="오르막길에서 가슴을 짚고 숨을 고르는 모습" width="800" height="450" loading="lazy" decoding="async"></div>
 
 <h3>심근경색</h3>
 <p>심근경색은 협심증에서 더 나아가 관상동맥이 완전히 막힘으로써 심장 근육이 손상을 입게 되거나
@@ -697,6 +709,7 @@ body{word-break:keep-all;overflow-wrap:break-word}
 <strong>통증이 더 심하고 오래 지속적으로</strong> 나타나게 됩니다.</p>
 <p>그러나 노인에서는 위의 특징적인 증상 없이 단지 숨이 차거나 심한 기침 등으로 나타날 수도 있습니다.</p>
 
+<div class="article-img"><img src="/assets/health-mi.webp" alt="가슴을 움켜쥐고 응급 전화를 거는 모습" width="800" height="450" loading="lazy" decoding="async"></div>
 <div class="alert">
   <b>심근경색은 응급상황입니다</b>
   <p>시간이 질병의 경과와 사망에 큰 영향을 미칠 수 있다는 것을 알아야 합니다.
@@ -706,6 +719,7 @@ body{word-break:keep-all;overflow-wrap:break-word}
 <h3>예방</h3>
 <p>관상동맥질환을 예방하기 위해서는 협심증과 심근경색을 일으킬 확률을 높이는
 위험인자를 줄이는 것이 중요합니다.</p>
+<div class="article-img"><img src="/assets/health-prevent.webp" alt="공원에서 함께 빠르게 걷는 중년 부부" width="800" height="450" loading="lazy" decoding="async"></div>
 <div class="chips">
   <span class="chip">흡연</span><span class="chip">고혈압</span><span class="chip">고지혈증</span>
   <span class="chip">비만증</span><span class="chip">당뇨병</span><span class="chip">운동 결핍</span>
@@ -731,8 +745,8 @@ body{word-break:keep-all;overflow-wrap:break-word}
 <h2>다른 질환 정보</h2>
 <p class="lede">원장이 직접 쓴 글입니다.</p>
 <div class="cards">
-  <a class="card" href="../diabetes/" style="text-decoration:none">
-    <div class="icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3.5S6.5 9.7 6.5 13.6a5.5 5.5 0 0 0 11 0C17.5 9.7 12 3.5 12 3.5Z"/><path d="M9.5 14a2.5 2.5 0 0 0 2.5 2.5"/></svg></div><h3>당뇨 관리</h3>
+  <a class="card has-img" href="../diabetes/" style="text-decoration:none">
+    <div class="card-img"><img src="/assets/risk-diabetes.webp" alt="손끝 채혈로 혈당을 측정하는 모습" width="640" height="480" loading="lazy" decoding="async"></div><h3>당뇨 관리</h3>
     <p>유마이닥터 혈당관리 시스템으로 한 달 단위의 혈당 추이를 함께 봅니다.</p>
     <div class="meta"><span>DIABETES</span><span>읽기 →</span></div></a>
 </div>
@@ -742,11 +756,11 @@ body{word-break:keep-all;overflow-wrap:break-word}
 <h2>이 질환과 관련된 검사</h2>
 <p class="lede">관상동맥질환이 의심될 때 원내에서 시행하는 검사입니다.</p>
 <div class="cards">
-  <div class="card"><div class="icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M5.5 12h2.6l1.6-3.6 2.4 7.2 1.8-4.6 1.2 1h3.4"/></svg></div><h3>심전도</h3>
+  <div class="card has-img"><div class="card-img"><img src="/assets/exam-ecg.webp" alt="심전도 기록지" width="640" height="480" loading="lazy" decoding="async"></div><h3>심전도</h3>
     <p>심근허혈과 부정맥의 흔적을 확인하는 기본 검사입니다.</p></div>
-  <div class="card"><div class="icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3.5a8.5 8.5 0 0 1 8.5 8.5"/><path d="M12 8a4 4 0 0 1 4 4"/><circle cx="12" cy="12" r="1.5"/><path d="M3.5 12a8.5 8.5 0 0 0 8.5 8.5"/></svg></div><h3>운동부하 심초음파</h3>
+  <div class="card has-img"><div class="card-img"><img src="/assets/exam-stress.webp" alt="트레드밀 운동부하 검사" width="640" height="480" loading="lazy" decoding="async"></div><h3>운동부하 심초음파</h3>
     <p>활동 시에만 증상이 나타나는 협심증을 감별합니다.</p></div>
-  <div class="card"><div class="icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 3.5v5.5a4 4 0 0 0 4 4 4 4 0 0 1 4 4v3.5"/><path d="M16 3.5v3"/><circle cx="8" cy="20.5" r="1.5"/></svg></div><h3>경동맥초음파</h3>
+  <div class="card has-img"><div class="card-img"><img src="/assets/exam-carotid.webp" alt="경동맥초음파 검사" width="640" height="480" loading="lazy" decoding="async"></div><h3>경동맥초음파</h3>
     <p>동맥경화의 진행 정도를 확인해 위험도를 평가합니다.</p></div>
 </div>
 <p style="margin-top:28px"><a class="btn solid" href="../exam/"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20.5S3.5 15 3.5 9.2A4.7 4.7 0 0 1 12 6.4a4.7 4.7 0 0 1 8.5 2.8c0 5.8-8.5 11.3-8.5 11.3Z"/><path d="M4.6 12h3.1l1.5-3 2.3 6 1.7-4 1.2 1h4.9"/></svg> 심장 검사 자세히 보기</a></p>
