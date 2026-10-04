@@ -733,6 +733,7 @@ Call us and we will tell you which tests are possible and how long they take.</p
 <span>Information on this site is general guidance and does not replace individual diagnosis or treatment.</span></div>
 </div></footer>
 
+<script src="/assets/closures.js"></script>
 <script>
 var DAY_LABEL=["일","월","화","수","목","금","토"];
 var DAY_EN=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
@@ -747,18 +748,19 @@ function seoulNow(){
 }
 function fmt(h){var hh=Math.floor(h),mm=Math.round((h-hh)*60);return hh+":"+(mm<10?"0"+mm:mm)}
 function statusNow(){
-  var now=seoulNow(),today=SCHEDULE[now.day],i,j,k;
+  var now=seoulNow(),off=typeof mwClosed=="function"?mwClosed(0):null,today=off?[]:SCHEDULE[now.day],i,j,k;
+  var MON=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
   for(i=0;i<today.length;i++)
     if(now.hours>=today[i][0]&&now.hours<today[i][1])
       return {open:true,headline:"Open now",sub:"Open until "+fmt(today[today.length-1][1])+" today."};
   for(j=0;j<today.length;j++)
     if(now.hours<today[j][0])
-      return {open:false,headline:(now.hours>=13&&now.hours<14.5)?"점심시간":"진료 준비 중",
+      return {open:false,headline:(now.hours>=13&&now.hours<14.5)?"Lunch break":"Opening soon",
         sub:"Reopens at "+fmt(today[j][0])+" today."};
-  for(k=1;k<=7;k++){var d=(now.day+k)%7;
-    if(SCHEDULE[d].length)
-      return {open:false,headline:today.length?"Closed for today":"Closed today",
-        sub:"Opens "+(k===1?"tomorrow":DAY_EN[d])+" at "+fmt(SCHEDULE[d][0][0])+"."};}
+  for(k=1;k<=14;k++){var d=(now.day+k)%7,h=(typeof mwClosed=="function"&&mwClosed(k))?[]:SCHEDULE[d];
+    if(h.length){var p=typeof mwKey=="function"?mwKey(k).split("-"):null;
+      return {open:false,headline:off?"Closed today — "+off[1]:today.length?"Closed for today":"Closed today",
+        sub:"Opens "+(k===1?"tomorrow":p?DAY_EN[d]+", "+MON[+p[1]-1]+" "+(+p[2]):DAY_EN[d])+" at "+fmt(h[0][0])+"."};}}
   return {open:false,headline:"Please call",sub:"031-718-8275"};
 }
 function renderStatus(){
@@ -768,10 +770,10 @@ function renderStatus(){
     card.querySelector("[data-status-sub]").textContent=s.sub;});
 }
 function markToday(){
-  var d=seoulNow().day;
+  var d=seoulNow().day,off=typeof mwClosed=="function"&&mwClosed(0);
   document.querySelectorAll("[data-hours] tbody tr").forEach(function(tr){
-    var days=(tr.getAttribute("data-days")||"").split(",");
-    var on=days.indexOf(String(d))>-1;
+    var attr=tr.getAttribute("data-days")||"",days=attr.split(",");
+    var on=off?attr==="holiday":days.indexOf(String(d))>-1;
     tr.classList.toggle("today",on);
     var tag=tr.querySelector(".today-tag");
     if(on&&!tag){var s=document.createElement("span");
