@@ -719,6 +719,13 @@ body{word-break:keep-all;overflow-wrap:break-word}
   .dept-lg{grid-template-columns:76px 1fr 18px;padding:12px 16px 12px 12px}
   .dept-img{width:76px;height:76px;margin:0;aspect-ratio:auto;border-radius:12px;overflow:hidden;align-self:center}
 }
+/* touch screens: no hover motion (iOS treats the first tap as hover when an element moves) */
+a.dept{touch-action:manipulation;-webkit-tap-highlight-color:rgba(0,80,201,.08)}
+@media (hover:none){
+  .dept:hover{transform:none;box-shadow:none;border-color:var(--b100)}
+  .dept-lg:hover .dept-go svg{transform:none}
+  .btn:hover{transform:none}
+}
 </style>
 </head>
 <body>
