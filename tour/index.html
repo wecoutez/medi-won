@@ -744,6 +744,7 @@ body{
 <span>본 사이트의 의학 정보는 일반적 안내이며 개별 진단과 치료를 대신하지 않습니다.</span></div>
 </div></footer>
 
+<script src="/assets/closures.js"></script>
 <script>
 var DAY_LABEL=["일","월","화","수","목","금","토"];
 var SCHEDULE={0:[],1:[[9,13],[14.5,18]],2:[[9,13],[14.5,18]],3:[],
@@ -757,7 +758,7 @@ function seoulNow(){
 }
 function fmt(h){var hh=Math.floor(h),mm=Math.round((h-hh)*60);return hh+":"+(mm<10?"0"+mm:mm)}
 function statusNow(){
-  var now=seoulNow(),today=SCHEDULE[now.day],i,j,k;
+  var now=seoulNow(),off=typeof mwClosed=="function"?mwClosed(0):null,today=off?[]:SCHEDULE[now.day],i,j,k;
   for(i=0;i<today.length;i++)
     if(now.hours>=today[i][0]&&now.hours<today[i][1])
       return {open:true,headline:"진료 중",sub:"오늘 "+fmt(today[today.length-1][1])+"까지 진료합니다."};
@@ -765,10 +766,10 @@ function statusNow(){
     if(now.hours<today[j][0])
       return {open:false,headline:(now.hours>=13&&now.hours<14.5)?"점심시간":"진료 준비 중",
         sub:"오늘 "+fmt(today[j][0])+"부터 진료합니다."};
-  for(k=1;k<=7;k++){var d=(now.day+k)%7;
-    if(SCHEDULE[d].length)
-      return {open:false,headline:today.length?"금일 진료 종료":DAY_LABEL[now.day]+"요일 휴진",
-        sub:(k===1?"내일":DAY_LABEL[d]+"요일")+" "+fmt(SCHEDULE[d][0][0])+"부터 진료합니다."};}
+  for(k=1;k<=14;k++){var d=(now.day+k)%7,h=(typeof mwClosed=="function"&&mwClosed(k))?[]:SCHEDULE[d];
+    if(h.length){var p=typeof mwKey=="function"?mwKey(k).split("-"):null;
+      return {open:false,headline:off?off[0]+" 휴진":today.length?"금일 진료 종료":DAY_LABEL[now.day]+"요일 휴진",
+        sub:(k===1?"내일":p?(+p[1])+"월 "+(+p[2])+"일("+DAY_LABEL[d]+")":DAY_LABEL[d]+"요일")+" "+fmt(h[0][0])+"부터 진료합니다."};}}
   return {open:false,headline:"진료시간 문의",sub:"031-718-8275로 연락 주십시오."};
 }
 function renderStatus(){
@@ -778,10 +779,10 @@ function renderStatus(){
     card.querySelector("[data-status-sub]").textContent=s.sub;});
 }
 function markToday(){
-  var d=seoulNow().day;
+  var d=seoulNow().day,off=typeof mwClosed=="function"&&mwClosed(0);
   document.querySelectorAll("[data-hours] tbody tr").forEach(function(tr){
-    var days=(tr.getAttribute("data-days")||"").split(",");
-    var on=days.indexOf(String(d))>-1;
+    var attr=tr.getAttribute("data-days")||"",days=attr.split(",");
+    var on=off?attr==="holiday":days.indexOf(String(d))>-1;
     tr.classList.toggle("today",on);
     var tag=tr.querySelector(".today-tag");
     if(on&&!tag){var s=document.createElement("span");
